@@ -1,7 +1,7 @@
 from flask import render_template ,request ,flash,session
-from class_web.config import app,db
-from class_web.model import *
-from class_web.pwd_check import password_check ,mail_otp
+from flask_class_web.config import app,db
+from flask_class_web.model import *
+from flask_class_web.pwd_check import password_check ,mail_otp
 
 import random
 
@@ -58,7 +58,7 @@ def sign_up():
                 # otp = mail_otp(email)
                 otp = random.randint(100000, 999999)
                 session['response'] = str(otp)
-                print(session['response'])
+
                 return render_template('email_auth.html' , msg =msg , user = temp_user ,status = status)
 
     return render_template('signup.html', msg = msg)

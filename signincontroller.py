@@ -1,6 +1,6 @@
 from flask import render_template ,request ,flash,session , url_for ,redirect
-from class_web.config import app,db
-from class_web.model import *
+from flask_class_web.config import app,db
+from flask_class_web.model import *
 
 @app.route('/login', methods =['GET','POST'])
 def login():

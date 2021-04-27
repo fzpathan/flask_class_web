@@ -1,4 +1,4 @@
-from class_web.config import db
+from flask_class_web.config import db
 
 class AdminUser(db.Model):
     a_id = db.Column('aid',db.Integer(),primary_key=True)
