@@ -1,4 +1,5 @@
-
+from flask_bcrypt import Bcrypt
+from flask_class_web.config import app
 def password_check(passwd):
     SPECIAL_WORD = ['$', '@', '#', '%']
     msg = ''
@@ -25,6 +26,18 @@ def password_check(passwd):
         return val
     return msg
 
+bcrypt = Bcrypt(app)
+
+def get_hash_password(password):
+    # print('before hash')
+    hash = bcrypt.generate_password_hash(password)
+    # print('inside hash function before save..!',hash)
+    return hash
+
+def get_password_from_hash(hpass,opwd):
+    print('before check dbpassword {}, userentered {}'.format(hpass,opwd))
+    return bcrypt.check_password_hash(hpass,opwd)
+
 import smtplib
 
 import random
@@ -49,6 +62,12 @@ def mail_otp(email):
     server.sendmail(sender_mail, rec_mail, messege)
     print("Email Sent to", rec_mail)
     return otp
-# if __name__ == '__main__':
-#     email = 'fzpathan@gmail.com'
-#     mail_otp(email)
+if __name__ == '__main__':
+    msg = password_check('Zorif5689')
+    print(msg)
+    # pwd = 'Mir@5689'
+    # hpassword = get_hash_password(pwd)
+    # password  = get_password_from_hash(hpassword,pwd)
+    # print(password)
+    # email = 'fzpathan@gmail.com'
+    # mail_otp(email)

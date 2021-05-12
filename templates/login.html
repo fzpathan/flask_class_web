@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-<body>
-<center> <h2>  Login </h2> </center>
+{% extends "home.html" %} {% block title %}Login{% endblock %} {% block content%}
+
 
 
 <form action="/login" method="POST">
@@ -27,9 +16,13 @@
    {%if msg %}
      <font color="green">       {{msg}} </font> <br><br>
     {% endif %}
+
+
     <br />
   <button type="submit" class="btn btn-primary">Login</button>
-  <a class="nav-link " href="/forgot_password">Forgot Password</a>
+  <div class="nav nav-tabs">
+  <a class="nav-link " href="/forget_pwd">Forget Password</a>
+  <a class="nav-link " href="/admin_login">Admin Login</a>
+    </div>
 
-</body>
-</html>
+{% endblock %}
