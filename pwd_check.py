@@ -46,10 +46,10 @@ import random
 
 
 def mail_otp(email):
-    sender_mail = "zorif.maths1@gmail.com"
+    sender_mail = ""
     rec_mail = email
     otp = random.randint(100000,999999)
-    pwd = '8087490543'
+    pwd = ''
     password = pwd
     messege = f"EMAIL is sent to otp authorization of account /n" \
               f"The OTP is given as {otp}"
@@ -65,9 +65,3 @@ def mail_otp(email):
 if __name__ == '__main__':
     msg = password_check('Zorif5689')
     print(msg)
-    # pwd = 'Mir@5689'
-    # hpassword = get_hash_password(pwd)
-    # password  = get_password_from_hash(hpassword,pwd)
-    # print(password)
-    # email = 'fzpathan@gmail.com'
-    # mail_otp(email)
